@@ -8,7 +8,7 @@ public class TicTacToe {
     private static char player2Choice;
 
     public static void initiateBoard() { //board initialization - uc1
-        for (int i = 1; i <= boardArray.length; i++) {
+        for (int i = 1; i <= 10; i++) {
             boardArray[i] = ' ';
         }
     }
@@ -29,8 +29,19 @@ public class TicTacToe {
         }
     }
 
+    public static void showBoard() {  // ShowBoard method to display the current board
+        System.out.println(" ----------- ");
+        System.out.println("| " + boardArray[1] + " | " + boardArray[2] + " | " + boardArray[3] + " |");
+        System.out.println("|-----------|");
+        System.out.println("| " + boardArray[4] + " | " + boardArray[5] + " | " + boardArray[6] + " |");
+        System.out.println("|-----------|");
+        System.out.println("| " + boardArray[7] + " | " + boardArray[8] + " | " + boardArray[9] + " |");
+        System.out.println(" ----------- ");
+    }
+
     public static void main(String[] args) {
         initiateBoard();
         playerChoice();
+        showBoard();
     }
 }
