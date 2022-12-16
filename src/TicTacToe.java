@@ -8,7 +8,7 @@ public class TicTacToe {
     private static char player2Choice;
 
     public static void initiateBoard() { //board initialization - uc1
-        for (int i = 1; i <= boardArray.length; i++) {
+        for (int i = 1; i <= 9; i++) {
             boardArray[i] = ' ';
         }
     }
