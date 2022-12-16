@@ -8,7 +8,7 @@ public class TicTacToe {
     private static char player2Choice;
 
     public static void initiateBoard() { //board initialization - uc1
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 9; i++) {
             boardArray[i] = ' ';
         }
     }
@@ -39,9 +39,24 @@ public class TicTacToe {
         System.out.println(" ----------- ");
     }
 
+    private static void getUserInput(int i) {
+        System.out.println("Player " + i + " Enter the Position for Your Symbol :"); //Method to get user input
+        int position = sc.nextInt();
+        if (i % 2 == 0) {
+            boardArray[position] = 'O';
+        } else {
+            boardArray[position] = 'X';
+        }
+    }
+
     public static void main(String[] args) {
         initiateBoard();
         playerChoice();
         showBoard();
+
+        for (int i = 1; i <= 9; i++) {
+            getUserInput((i % 2) + 1);
+            showBoard();
+        }
     }
 }
