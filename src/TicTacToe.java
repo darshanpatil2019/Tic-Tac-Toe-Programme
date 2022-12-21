@@ -49,6 +49,18 @@ public class TicTacToe {
         }
     }
 
+    private static boolean checkFreePosition(int enteredPosition) {
+        if (enteredPosition < 1 || enteredPosition > 9) {
+            System.out.println("Please Enter the position between 1 to 9 only");
+            return false;
+        } else if (boardArray[enteredPosition] != '_'){
+            System.out.println("Entered Location Contain Symbol.Please Enter Another Location.");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public static void main(String[] args) {
         initiateBoard();
         playerChoice();
