@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -53,7 +54,7 @@ public class TicTacToe {
         if (enteredPosition < 1 || enteredPosition > 9) {
             System.out.println("Please Enter the position between 1 to 9 only");
             return false;
-        } else if (boardArray[enteredPosition] != '_'){
+        } else if (boardArray[enteredPosition] != '_') {
             System.out.println("Entered Location Contain Symbol.Please Enter Another Location.");
             return false;
         } else {
@@ -61,14 +62,33 @@ public class TicTacToe {
         }
     }
 
+    private static int flipToss() {
+        Random toss = new Random();
+        int tossValue = toss.nextInt(2) + 1;
+        return tossValue;
+    }
+
+    private static void gamePlay(int tossValue) {
+        for (int i = 1; i < 10; i++) {
+            if (i % 2 == 0) {
+                if (tossValue == 2) {
+                    getUserInput(1);
+                } else {
+                    getUserInput(2);
+                }
+            } else {
+                getUserInput(tossValue);
+            }
+            showBoard();
+        }
+    }
+
     public static void main(String[] args) {
         initiateBoard();
         playerChoice();
         showBoard();
+        int tossValue = flipToss();
+        gamePlay(tossValue);
 
-        for (int i = 1; i <= 9; i++) {
-            getUserInput((i % 2) + 1);
-            showBoard();
-        }
     }
 }
