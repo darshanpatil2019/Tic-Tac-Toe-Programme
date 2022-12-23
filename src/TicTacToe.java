@@ -156,14 +156,22 @@ public class TicTacToe {
     }
 
     public static void main(String[] args) {
+
         System.out.println("Welcome to Tic Tac Toe Game");
-        initializeBoard();
-        setPlayingSymbol();
-        showBoard();
-        flipToss();
-        while (!checkWin()) {
-            playGame();
-            showBoard();
-        }
+        char userChoice;
+        //Play the Game till Win or Draw
+        do {
+            initializeBoard(); //Set the new Game
+            setPlayingSymbol(); //Set the Symbol for Play
+            showBoard(); // Showing the Initial Board
+            flipToss(); // Flip the Toss for Player's Chancce
+            while(!checkWin()) {
+                playGame();
+                showBoard();
+            }
+            System.out.println("Do you want to Play Again? (Y/N) :");
+            userChoice = sc.next().charAt(0);
+        } while(userChoice == 'Y');
     }
 }
+
